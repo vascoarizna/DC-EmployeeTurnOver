@@ -3946,7 +3946,7 @@ print('The FINAL Model Accuracy on the Test Set is: ',voting_roc_auc)
 
 
 
-if votingScore>tunedAlgorithmTable.iloc[0,1]:
+if voting_roc_auc>tunedAlgorithmTable.iloc[0,1]:
     print('\nThe top {} combination of models ({}) do better than the best model ({}) alone.'.format(n_Algorithms,theEstimators,tunedAlgorithmTable.iloc[0,0]))
     predictorToUse=VotingPredictor
 else:
