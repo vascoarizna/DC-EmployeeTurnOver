@@ -163,8 +163,8 @@ df.info()
     
 
 ## A.1. Info Summary
-- <i> We have 9540 entries, in 10 columns
-- <i> We have no NULL values and all the attributes seem to have the correct DataType 
+  - <i> We have 9540 entries, in 10 columns</i>
+  - <i> We have no NULL values and all the attributes seem to have the correct DataType</i>
 
 
 ```python
