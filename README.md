@@ -1,10 +1,33 @@
 # Report 
 ## Analyzing the Employees TurnOver
 
-In the following report, we will analyze three main premises:
-1. Which department has the highest employee turnover? Which one has the lowest?
-2. Investigate which variables seem to be better predictors of employee departure.
-3. What recommendations would you make regarding ways to reduce employee turnover?
+Machine Learning, and the whole AI spectrum, give us a lot of resources to attack many common problems we have on a daily basis. The creation of the so-called ML 'models' give us powerful information: predictions.
+
+Let's suppose we work for the HR team in a large company. The Board of the Company is worried about the relatively high turnover, and your team must look into ways to reduce the number of employees leaving the company. (This case is part of a DataCamp competition https://app.datacamp.com/workspace/w/fe01229f-0e67-47d8-8872-9eed8674da29)
+
+The team needs to understand better the situation, which employees are more likely to leave, and why. Once it is clear what variables impact employee churn, you can present your findings along with your ideas on how to attack the concern.
+The department has assembled data on almost 10,000 employees. The team used information from exit interviews, performance reviews, and employee records. The variables we will find in the dataset for each employee are:
+- Department - the department the employee belongs to.
+- Promotion - if the employee was promoted in the previous 24 months.
+- Review - the composite score the employee received in their last evaluation.
+- Projects - how many projects the employee is involved in.
+- Salary - for confidentiality reasons, salary comes in three tiers: low, medium, high.
+- Tenure - how many years the employee has been at the company.
+- Satisfaction - a measure of employee satisfaction from surveys.
+- Average Worked Hours per Month - the average hours the employee worked in a month.
+- Left - Whether the employee ended up leaving or not.
+
+
+The analysis of the Data is a taks that must be tackle in phases. In this report, we will analyze three main premises:
+
+1. Which department has the highest employee turnover? Which one has the lowest? (Descriptive Analysis)
+2. Investigate which variables seem to be better predictors of employee departure. (Predictive Analysis)
+3. What recommendations would you make regarding ways to reduce employee turnover? (Prescriptive Analysis)
+
+In the first point, Descriptive Analysis, we will answer the idea of 'What has happened?'. This is what we have done through all the Exploratory Analysis: understand what happened in the company, through the data. The value we learn here are the so-called 'hindsights'.
+In the second point, Predictive Analysis, we will reply to the idea of 'What could happen in the future based on previous trends and patterns?'. We will get the features (attributes/columns/characteristics) that are more relevant to define the outcome of the model. Then, we will generate the model. The value we learn here are the so-called 'insights'.
+In the third point, Prescriptive Analysis, we will reply to the idea of 'What should the company do?'. We have what happened in the past. We have the key features that define the behavior of the outcome. Now it's in our hands to try to anticipate the future and try to get the outcomes we are looking for. Here we apply the model, and we bring some business strategies into the 'game'. Here, the support from the Company's Direction is critical to get the most of the model's outcome. The value we learn here are the so-called 'foresights'.
+
 
 Before starting with the first question, we will analyze the dataset to see if we can find insights. First, we will do an Exploratory Analysis by studying statistical data and correlations between the variables (in pairs). After this, we will do a Graphical Analysis. Moreover, we will continue analyzing pairs of data in a deeper way. Once we finish the analysis, we will release the first draft of the insights found.
 
@@ -16,6 +39,9 @@ Then, we will try to get some predictions using some simulated data, and we will
 
 Finally, in the last question, we will summarize all the studies done and get some general ideas to implement in the company. 
 Also, in a more specific way, we will propose a strategy to follow based on a Command Board. Here the Human Resources team will be able to monitor and predict if and when they have to apply any kind of incentive or specific tool to avoid an employee leaving the company. This command board will measure the urgency of the case so no resources are wasted unnecessarily.
+
+
+
 
 
 ---
@@ -2390,6 +2416,15 @@ print('The department with the lowest number of Employees Total TurnOver is (the
 
 ---
 # 2.Investigate which variables seem to be better predictors of employee departure.
+
+For modeling a Machine Learning algorithm, first of all, we need to identify the problem we are in: in this case, it's a classification problem (the outcome we are expecting is a specific value included in a defined range of possible values). Here is 'yes' or 'no'. The employee leaves the company or not.
+
+Then, what algorithm should we use? Well, no one has the answer. It depends on many factors. That is why, in point 2.2, we will be trying a set of them and see which one scores the better.
+
+For modeling ML's algorithms, the data also has to fulfill some conditions. One of them is that all the data has only numeric values. That is why we need to convert all the non-numerical values into numbers. This will be the case of the target/outcome ('yes' or 'no', will be converted into 1 or 0) and the departments ('sales', 'it', 'finance'... which will be converted in 0,1,2,3,...). On top of this, the dataset must not have any NULL value. However, we have already checked that, and we are OK.
+
+In the ML modeling, we will have to split our dataset into train and test sets. The train set will be composed of 85% of the total dataset, while the 15% rest will be the test one. Why? Because we will have to evaluate how well our model did in the training phase. After splitting our dataset, will have to 'fit' a model (also known as 'estimator') to a training dataset. Then, once we have tuned the model's parameters to make it score better, we apply the fitted model to the dataset we will use to predict. Once we have the predictions, we will compare them with the actual results of the test set, to see how good we did. We will repeat this procedure (tuning, predicting & scoring) until we have the best possible result.
+
 
 For selecting the Variables/Features that would explain our model, we have two options:
 1. We select the features by using a Classification Model and then apply these best features in a Logistic Regression Model
